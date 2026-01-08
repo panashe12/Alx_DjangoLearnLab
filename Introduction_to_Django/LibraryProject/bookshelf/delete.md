@@ -1,4 +1,4 @@
-DELETE OPERATION
+DELETE OPERATION 
 
 Delete the book from the database.
 
@@ -8,3 +8,4 @@ Delete the book from the database.
 Output
 # (1, {'bookshelf.Book': 1})
 # Book deleted successfully
+from bookshelf.models import Book
