@@ -12,3 +12,4 @@ Output
 # <Book: 1984 by George Orwell>
 # Updated successfully (publication_year = 1950)
 Nineteen Eighty-Four
+book.title
