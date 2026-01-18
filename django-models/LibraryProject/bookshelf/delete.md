@@ -1,11 +1,1 @@
-DELETE OPERATION 
-
-Delete the book from the database.
-
->>> book.delete()
-
-
-Output
-# (1, {'bookshelf.Book': 1})
-# Book deleted successfully
-from bookshelf.models import Book
+from bookshelf.models import Book instance = Book.objects.create(id=1,title='1984',author='George Orwell',publication_year= '1949') book = Book.objects.get(id=1) book.delete()
