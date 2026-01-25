@@ -64,3 +64,10 @@ class Book(models.Model):
             f"author={self.author} "
             f"published_date={self.published_date}"
         )
+    class Meta:
+        permissions = [
+            ("can_view", "Can view book"),
+            ("can_create", "Can create book"),
+            ("can_edit", "Can edit book"),
+            ("can_delete", "Can delete book"),
+        ]
