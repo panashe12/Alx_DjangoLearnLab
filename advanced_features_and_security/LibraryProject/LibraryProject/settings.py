@@ -142,3 +142,47 @@ CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'",)
 CSP_STYLE_SRC = ("'self'",)
 
+"""
+--------------------------------------------
+HTTPS & Security Settings (Production)
+--------------------------------------------
+
+1. SECURE_SSL_REDIRECT=True
+   Redirects all HTTP requests to HTTPS.
+
+2. HSTS Settings
+   SECURE_HSTS_SECONDS=31536000
+   SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+   SECURE_HSTS_PRELOAD=True
+   Ensures browsers only access the site via HTTPS for 1 year.
+
+3. Secure Cookies
+   SESSION_COOKIE_SECURE=True
+   CSRF_COOKIE_SECURE=True
+   Ensures cookies are only sent over HTTPS.
+
+4. Security Headers
+   X_FRAME_OPTIONS='DENY'
+   SECURE_CONTENT_TYPE_NOSNIFF=True
+   SECURE_BROWSER_XSS_FILTER=True
+   Protects against clickjacking, MIME sniffing, and XSS attacks.
+
+5. Deployment
+   Use SSL/TLS certificate on server (Nginx or Apache) and proxy to Django.
+"""
+
+
+# Enforce HTTPS for all requests
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  # 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+
