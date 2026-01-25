@@ -43,3 +43,15 @@ def delete_book(request, book_id):
     book = get_object_or_404(Book, id=book_id)
     book.delete()
     return redirect("book_list")
+
+@login_required
+@permission_required('bookshelf.can_view', raise_exception=True)
+def book_search(request):
+    query = request.GET.get("q", "")
+
+    # Validate input length
+    if len(query) > 100:
+        query = query[:100]
+
+    books = Book.objects.filter(title__icontains=query)
+    return render(request, "bookshelf/book_list.html", {"books": books})

@@ -17,3 +17,8 @@ Permissions & Groups Setup:
    - create_book -> bookshelf.can_create
    - edit_book -> bookshelf.can_edit
    - delete_book -> bookshelf.can_delete
+
+# Security settings
+# DEBUG must be False in production to prevent sensitive info leaks.
+# CSRF_COOKIE_SECURE and SESSION_COOKIE_SECURE enforce HTTPS only cookies.
+# CSP prevents XSS by allowing only self-hosted scripts/styles.
